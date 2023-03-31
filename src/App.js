@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './style/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
+
+
 // Importerar komponenter.
 import { BookList } from './components/BookList';
 import { SearchBar } from './components/SearchBar';
@@ -46,7 +48,7 @@ export default function App() {
         <h3>Search Books</h3>
         <SearchBar query={query} handleQuery={handleQuery} search={search} />
         <Book book={activeBook} />
-        <BookList books={results} displayBook={displayBook} />
+        {results.length != 0 ? <BookList books={results} displayBook={displayBook}/> : null}
         <Footer />
       </Container>
     </div>
